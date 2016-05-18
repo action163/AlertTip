@@ -10,7 +10,7 @@
 
 @protocol TipViewDelegate <NSObject>
 @required
--(void)alertView:(id)alertView buttonClickedAtIndex:(int)buttonIndex;
+-(void)alertTips:(id)alertTips buttonClickedAtIndex:(int)buttonIndex;
 
 @end
 
@@ -30,6 +30,6 @@
 - (void)setTitleColor:(UIColor*)color;
 - (void)setMsgColor:(UIColor*)color;
 - (void)show;
-+ (void)hidden;
+- (void)hidden;
 
 @end

@@ -11,8 +11,8 @@
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define TOPMAGIN 20.0
-#define LEFTMAGIN 5.0
-#define FIXMAGIN 5.0
+#define LEFTMAGIN 30.0
+#define FIXMAGIN 10.0
 #define LEFTBTN  20.0
 @implementation TipView
 
@@ -58,7 +58,7 @@
     }];
     [window addSubview:self];
 }
-+ (void)hidden{
+-(void)hidden{
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     TipView *view = (TipView*)[window viewWithTag:19911008];
     view.hidden = YES;
@@ -116,10 +116,11 @@
 }
 -(void)initItemForTips{
     
-    CGSize titleSize = [self.title boundingRectWithSize:CGSizeMake(SCREENWIDTH-80, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
+    CGSize titleSize = [self.title boundingRectWithSize:CGSizeMake(SCREENWIDTH-60-LEFTMAGIN*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size;
     
-    UILabel* titleLable = [[UILabel alloc] initWithFrame:CGRectMake(LEFTMAGIN, TOPMAGIN, SCREENWIDTH-80, titleSize.height)];
+    UILabel* titleLable = [[UILabel alloc] initWithFrame:CGRectMake(LEFTMAGIN, TOPMAGIN, SCREENWIDTH-60-LEFTMAGIN*2, titleSize.height)];
     titleLable.text = self.title;
+    titleLable.font = [UIFont systemFontOfSize:17];
     titleLable.textAlignment = NSTextAlignmentCenter;
     titleLable.backgroundColor = [UIColor clearColor];
     titleLable.numberOfLines = 0;
@@ -127,10 +128,10 @@
     [self.boxView addSubview:titleLable];
   
     
-   CGSize msgSize =[self.msg boundingRectWithSize:CGSizeMake(SCREENWIDTH-80, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
-    UILabel* msgLabel = [[UILabel alloc] initWithFrame:CGRectMake(LEFTMAGIN, titleLable.frame.origin.y+titleSize.height+FIXMAGIN, SCREENWIDTH-80, msgSize.height)];
+   CGSize msgSize =[self.msg boundingRectWithSize:CGSizeMake(SCREENWIDTH-60-LEFTMAGIN*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
+    UILabel* msgLabel = [[UILabel alloc] initWithFrame:CGRectMake(LEFTMAGIN, titleLable.frame.origin.y+titleSize.height+FIXMAGIN, SCREENWIDTH-60-LEFTMAGIN*2, msgSize.height)];
     msgLabel.backgroundColor = [UIColor clearColor];
-    msgLabel.font = [UIFont systemFontOfSize:14];
+    msgLabel.font = [UIFont systemFontOfSize:15];
     msgLabel.text = self.msg;
     msgLabel.numberOfLines = 0;
     msgLabel.tag = 1008612;
@@ -138,7 +139,6 @@
     [self.boxView addSubview:msgLabel];
 
     self.boxView.bounds = CGRectMake(0,0,SCREENWIDTH-60, msgLabel.frame.origin.y+msgSize.height+FIXMAGIN);
-    NSLog(@"%f====%f===%f===%f",titleSize.height,msgSize.height,msgLabel.frame.origin.y+msgSize.height+FIXMAGIN,msgLabel.frame.origin.y);
     self.boxView.center = self.center;
     [self addSubview:self.boxView];
 
@@ -146,12 +146,10 @@
 
 - (void)buttonClicked:(UIButton*)button{
     if (self.Delegate) {
-        if ([self.Delegate respondsToSelector:@selector(alertView:buttonClickedAtIndex:)]){
-            [self.Delegate alertView:self buttonClickedAtIndex:(int)button.tag];
-            [TipView hidden];
-        }
+            [self.Delegate alertTips:self buttonClickedAtIndex:(int)button.tag];
+            [self hidden];
     }else{
-        [TipView hidden];
+        [self hidden];
     }
 }
 @end
