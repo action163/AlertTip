@@ -8,9 +8,7 @@
 
 #import "ViewController.h"
 #import "TipView.h"
-#import <WebKit/WebKit.h>
 @interface ViewController ()<TipViewDelegate>
-@property(nonatomic,strong)WKWebView*  webView;
 @end
 
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
@@ -20,10 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor redColor];
-//    self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
-//    [self.view addSubview:self.webView];
-//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
-//    self.webView.allowsBackForwardNavigationGestures = YES;
  }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 

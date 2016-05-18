@@ -17,7 +17,6 @@
 		06CF1E291CEC1B9D00C62203 /* TipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CF1E281CEC1B9D00C62203 /* TipView.m */; };
 		06CF1E2C1CEC4FA500C62203 /* sure.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF1E2A1CEC4FA500C62203 /* sure.png */; };
 		06CF1E2D1CEC4FA500C62203 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CF1E2B1CEC4FA500C62203 /* cancel.png */; };
-		06CF1E2F1CEC56BA00C62203 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CF1E2E1CEC56BA00C62203 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +35,6 @@
 		06CF1E281CEC1B9D00C62203 /* TipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipView.m; sourceTree = "<group>"; };
 		06CF1E2A1CEC4FA500C62203 /* sure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sure.png; sourceTree = "<group>"; };
 		06CF1E2B1CEC4FA500C62203 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
-		06CF1E2E1CEC56BA00C62203 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06CF1E2F1CEC56BA00C62203 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +51,6 @@
 		06CF1E001CEBFA2500C62203 = {
 			isa = PBXGroup;
 			children = (
-				06CF1E2E1CEC56BA00C62203 /* WebKit.framework */,
 				06CF1E271CEC1B9D00C62203 /* TipView.h */,
 				06CF1E281CEC1B9D00C62203 /* TipView.m */,
 				06CF1E0B1CEBFA2500C62203 /* AlertTip */,
